@@ -6,13 +6,17 @@ public class AreaEntrance : MonoBehaviour
 {
     public string transitionName;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        if (transitionName == PlayerController.instance.areaTransitionName)
+        if (PlayerController.instance != null)
         {
-            PlayerController.instance.transform.position = transform.position;
+            if (transitionName == PlayerController.instance.areaTransitionName)
+            {
+                PlayerController.instance.transform.position = transform.position;
+            }
         }
         UIFade.instance.FadeFromBlack();
+        GameManager.instance.fadingBetweenAreas = false;
     }
 
     // Update is called once per frame
