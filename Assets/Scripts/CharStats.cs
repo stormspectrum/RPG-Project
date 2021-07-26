@@ -8,7 +8,7 @@ public class CharStats : MonoBehaviour
     public int playerLevel = 1;
     public int currentEXP;
     public int[] expToNextLevel;
-    public int maxLevel = 10;
+    public int maxLevel = 100;
     public int baseEXP = 1000;
 
 
@@ -25,7 +25,7 @@ public class CharStats : MonoBehaviour
     public string equippedArmor;
     public Sprite charImage;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         expToNextLevel = new int[maxLevel];
         expToNextLevel[1] = baseEXP;
@@ -40,7 +40,7 @@ public class CharStats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.K))
+        if(Input.GetKeyDown(KeyCode.M))
         {
             AddExp(600);
         }
