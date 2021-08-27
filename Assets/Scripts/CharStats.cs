@@ -57,17 +57,12 @@ public class CharStats : MonoBehaviour
                 
                 playerLevel++;
                 if (playerLevel >= maxLevel)
-
                 {
 
                     currentEXP = 0;
 
-                }
-
-                else
-
+                } else
                 {
-
                     currentEXP -= expToNextLevel[playerLevel];
 
                 }
@@ -87,7 +82,11 @@ public class CharStats : MonoBehaviour
                 currentHP = maxHP;
 
                 //modify Mp
-                maxMP += mpLvlBonus[playerLevel];
+                if (mpLvlBonus.Length > 0)
+                {
+                    maxMP += mpLvlBonus[playerLevel];
+                }
+
                 currentMP = maxMP;
 
                 if (playerLevel == maxLevel)
